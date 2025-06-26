@@ -1,10 +1,16 @@
-import { Fun } from "./fun";
-import { BrowserRouter, Route, Routes } from "react-router-dom"; 
-import { Homepage } from "./Navbar1";
+import { RegistrationForm } from "./EmployeeRegistration";
+import { ReadEmployee } from "./Read";
+import { Updating } from "./update";
+
 
 function App() {
   return (
     <>
+    {/* <RegistrationForm/> */}
+    {/* <ReadEmployee/> */}
+    <Updating/>
+
+    
     
     </>
 

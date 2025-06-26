@@ -1,28 +1,18 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { useState } from 'react'
-import { create } from './TemporyValues'
-export const RegistrationForm=()=>
+import { useState } from "react";
+import { update } from "./TemporyValues";
+export const Updating=(Name)=>
 {
+    const[pos,setPos]=useState(Name.who);
     const[userdetail,setUserdetail]=useState({
-        "empid":0,
-        "empname":"",
-        "empusername":"",
-        "emppassword":"",
-        "empdesignation":"",
-        "empexp":0,
-        "empsalary":0
+        "empid":Name.mention.empid,
+        "empname":Name.mention.empname,
+        "empusername":Name.mention.empusername,
+        "emppassword":Name.mention.emppassword,
+        "empdesignation":Name.mention.empdesignation,
+        "empexp":Name.mention.empexp,
+        "empsalary":Name.mention.empsalary
     })
-
-    const Register=()=>
-    {
-        alert("Welcome to Zealous"+JSON.stringify(userdetail))
-    }
-    const Cancel=()=>
-    {
-        alert("reject")
-    }
-    // ...spread Operator 
-    const track=(mydatas)=>
+     const track=(mydatas)=>
     {
         const{name,value}=mydatas.target
         setUserdetail((adding)=>
@@ -32,8 +22,18 @@ export const RegistrationForm=()=>
             }
         })
     }
+    const Register=()=>
+    {
+        alert("welcome to zelaous"+JSON.stringify(userdetail))
+        update(userdetail,pos)
+        alert("updated successfully")
 
-
+    
+    }
+    const Cancel=()=>
+    {
+        alert("REJECT")
+    }
     return(
         <>
         <div className="container-fluid mt-4">
@@ -115,4 +115,8 @@ export const RegistrationForm=()=>
         </div>
         </>
     )
+
+
+
+
 }
